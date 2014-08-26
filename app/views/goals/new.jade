@@ -1,0 +1,19 @@
+extends ../shared/template
+block content
+  h2 Set Your Goals!
+  .row
+    .col-xs-3
+      form(role='form', method='post', action='/goals')
+        .form-group
+          label(for='name') Name Your Goal
+          input.form-control#name(type='text', name='name', autofocus=true)
+        .form-group
+          label(for='due') Due
+          input.form-control#due(type='date', name='due')
+        .form-group
+          label(for='tags') Tags
+          input.form-control#tags(type='text', name='tags')
+        button.btn.btn-success(type='submit') CREATE
+    .col-xs-9
+
+block scripts

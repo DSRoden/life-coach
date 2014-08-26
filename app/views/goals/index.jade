@@ -1,0 +1,15 @@
+extends ../shared/template
+block content
+  h2 Your Goals
+    table.table.table-striped.table-hover
+      thead
+        tr
+          th Name
+          th Due
+          th Tags
+      tbody
+        each goal in goals
+          tr
+            td: a(href='/goals/#{goal._id}')= goal.name
+            td= moment(goal.due).format('MMM Do, YYYY')
+            td= goal.tags
