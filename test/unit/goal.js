@@ -68,7 +68,6 @@ describe('Goal', function(){
          _id = Mongo.ObjectID('a00000000000000000000001');
       Goal.addTask(task, _id, function(){
         Goal.findById('a00000000000000000000001', function(err, goal){
-          console.log(goal);
           expect(goal.tasks).to.have.length(4);
           done();
         });

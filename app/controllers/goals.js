@@ -31,9 +31,7 @@ exports.show = function(req, res){
 };
 
 exports.addTask = function(req, res){
-  var task = new Task(req.body);
-  Goal.findById(req.params.id, function(err, goal){
-    goal.addTask(task);
-    res.redirect('/goals/:id', {goal:goal});
+  Goal.addTask(req.body, req.params.id,  function(){
+    res.redirect('/goals/' + req.params.id);
   });
 };

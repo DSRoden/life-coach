@@ -3,6 +3,8 @@ block content
   .row
     .col-xs-6
       h2= goal.name
+      each task in goal.tasks
+        .name= task.name
     .col-xs-6
       h2 Add Task
       form(role='form', method='post', action='/goals/#{goal._id}/tasks')

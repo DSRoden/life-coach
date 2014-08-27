@@ -104,14 +104,14 @@ describe('goals', function(){
     });
   });
 
-  describe('get /goals/3/tasks', function(){
+  describe('post /goals/3/tasks', function(){
     it('should create a task for a specific goal', function(done){
       request(app)
-      .post('/goals/a00000000000000000000001/tasks')
-      .set('cookie', cookie)
+      .post('/goals/a00000000000000000000003/tasks')
       .send('name=shoes&description=buy+shoes+&difficulty=Medium&rank=4')
+      .set('cookie', cookie)
       .end(function(err, res){
-        expect(res.status).to.equal(200);
+        expect(res.status).to.equal(302);
         done();
       });
     });

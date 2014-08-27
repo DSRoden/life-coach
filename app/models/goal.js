@@ -34,10 +34,8 @@ Goal.findById = function(id, cb){
 Goal.addTask = function(o, id, cb){
   var task = new Task(o),
    _id = Mongo.ObjectID(id);
-  console.log(_id);
   Goal.collection.findOne({_id:_id}, function(err,goal){
     goal.tasks.push(task);
-    console.log(goal);
     Goal.collection.save(goal, cb);
   });
 };
